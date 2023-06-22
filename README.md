@@ -1,6 +1,49 @@
 # ILCB
 ## Citation
+安装package 后运行程序跑不同案例
 
+case 1 :
+	clf+ static 
+		roslaunch nexus_4wd_mecanum_gazebo  nexus_4wd_mecanum_world1.launch
+
+		python3 pd_CBF_static.py
+
+
+case 2:
+	clf + dynamic
+
+		roslaunch nexus_4wd_mecanum_gazebo  nexus_4wd_mecanum_world.launch
+
+		python3 pd_CBF_dynamic1.py
+		python3 pd_CBF_static_dynamic_case.py
+
+case3：
+	clf + small_demo(100,150)
+
+		roslaunch nexus_4wd_mecanum_gazebo  nexus_4wd_mecanum_world.launch
+
+		python3 pd_CBF_static_small_demo.py 
+
+
+
+case4：
+	comparison
+
+		roslaunch nexus_4wd_mecanum_gazebo nexus_4wd_mecanum_duibi.launch
+
+		export TURTLEBOT3_MODEL=waffle_pi
+		source ~/.bashrc
+
+
+		roslaunch ros_autonomous_slam turtlebot3_world.launch
+	
+		roslaunch ros_autonomous_slam autonomous_explorer.launch
+
+		roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
+
+		roslaunch ros_autonomous_slam turtlebot3_navigation.launch
+	
+		python3 pd_CBF_static_duibi1.py
 
 
 
