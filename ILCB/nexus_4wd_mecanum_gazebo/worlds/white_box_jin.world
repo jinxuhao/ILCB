@@ -1,0 +1,695 @@
+
+
+<!--
+  Generated from actor_collisions.world.erb
+  Seed: 8784956
+-->
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="default">
+    <light name='sun' type='directional'>
+      <cast_shadows>1</cast_shadows>
+      <pose frame=''>0 0 10 0 -0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+    <model name='ground_plane'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_bitmask>65535</collide_bitmask>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/DarkGrey</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+    
+    <actor name="animated_box_2">
+      <link name="link">
+        <inertial>
+          <mass>1.0</mass>
+          <inertia> <!-- inertias are tricky to compute -->
+            <ixx>0.083</ixx>       <!-- for a box: ixx = 0.083 * mass * (y*y + z*z) -->
+            <ixy>0.0</ixy>         <!-- for a box: ixy = 0 -->
+            <ixz>0.0</ixz>         <!-- for a box: ixz = 0 -->
+            <iyy>0.083</iyy>       <!-- for a box: iyy = 0.083 * mass * (x*x + z*z) -->
+            <iyz>0.0</iyz>         <!-- for a box: iyz = 0 -->
+            <izz>0.083</izz>       <!-- for a box: izz = 0.083 * mass * (x*x + y*y) -->
+          </inertia>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>.4 .4 1.8</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>.4 .4 1.8</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Bricks</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+      </link>
+      <plugin name="actor_collisions_plugin" filename="/home/jin/ba_ws/src/nexus_4wd_mecanum_simulator-master/nexus_4wd_mecanum_gazebo/actor_collisions-master/build/libActorCollisionsPlugin.so">
+        <scaling collision="box_collision" scale=" 
+            0.4
+            0.4
+            1.8
+          "/>
+      </plugin>
+      <script>
+        <loop>true</loop>
+          <auto_start>true</auto_start>
+            <trajectory id="0" type="walking">
+              <waypoint>
+              <time>0.0</time>
+              <pose>2 6 0 0 0 0</pose>
+              </waypoint>
+              <waypoint>
+                <time>10.0*8</time>
+                <pose>3 5 0 0 0 0</pose>
+              </waypoint>
+              <waypoint>
+                <time>20.0*8</time>
+                <pose>4 4 0 0 0</pose>
+              </waypoint>
+              <waypoint>
+                <time>30.0*8</time>
+                <pose>5 3 0 0 0 0</pose>
+              </waypoint>
+              <waypoint>
+                <time>40.0*8</time>
+                <pose>4 4 0 0 0 0</pose>
+              </waypoint>
+              <waypoint>
+                <time>50.0*8</time>
+                <pose>3 5 0 0 0 0</pose>
+              </waypoint>
+            </trajectory>
+      </script>
+    </actor>
+
+    <actor name="animated_box_3">
+      <link name="link">
+        <inertial>
+          <mass>1.0</mass>
+          <inertia> <!-- inertias are tricky to compute -->
+            <ixx>0.083</ixx>       <!-- for a box: ixx = 0.083 * mass * (y*y + z*z) -->
+            <ixy>0.0</ixy>         <!-- for a box: ixy = 0 -->
+            <ixz>0.0</ixz>         <!-- for a box: ixz = 0 -->
+            <iyy>0.083</iyy>       <!-- for a box: iyy = 0.083 * mass * (x*x + z*z) -->
+            <iyz>0.0</iyz>         <!-- for a box: iyz = 0 -->
+            <izz>0.083</izz>       <!-- for a box: izz = 0.083 * mass * (x*x + y*y) -->
+          </inertia>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>.4 .4 1.8</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>.4 .4 1.8</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Bricks</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+      </link>
+      <plugin name="actor_collisions_plugin" filename="/home/jin/ba_ws/src/nexus_4wd_mecanum_simulator-master/nexus_4wd_mecanum_gazebo/actor_collisions-master/build/libActorCollisionsPlugin.so">
+        <scaling collision="box_collision" scale=" 
+            0.4
+            0.4
+            1.8
+          "/>
+      </plugin>
+      <script>
+        <loop>true</loop>
+          <auto_start>true</auto_start>
+            <trajectory id="0" type="walking">
+              <waypoint>
+                <time>0.0</time>
+                <pose>8 9 0 0 0 0</pose>
+              </waypoint>
+              <waypoint>
+                <time>5.0*8</time>
+                <pose>10 11 0 0 0 0</pose>
+              </waypoint>
+              <waypoint>
+                <time>10.0*8</time>
+                <pose>8 9 0 0 0 0</pose>
+              </waypoint>
+            </trajectory>
+      </script>
+    </actor>
+
+
+    <actor name="animated_box_4">
+      <link name="link">
+        <inertial>
+          <mass>1.0</mass>
+          <inertia> <!-- inertias are tricky to compute -->
+            <ixx>0.083</ixx>       <!-- for a box: ixx = 0.083 * mass * (y*y + z*z) -->
+            <ixy>0.0</ixy>         <!-- for a box: ixy = 0 -->
+            <ixz>0.0</ixz>         <!-- for a box: ixz = 0 -->
+            <iyy>0.083</iyy>       <!-- for a box: iyy = 0.083 * mass * (x*x + z*z) -->
+            <iyz>0.0</iyz>         <!-- for a box: iyz = 0 -->
+            <izz>0.083</izz>       <!-- for a box: izz = 0.083 * mass * (x*x + y*y) -->
+          </inertia>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>.4 .4 1.8</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>.4 .4 1.8</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Bricks</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+      </link>
+      <plugin name="actor_collisions_plugin" filename="/home/jin/ba_ws/src/nexus_4wd_mecanum_simulator-master/nexus_4wd_mecanum_gazebo/actor_collisions-master/build/libActorCollisionsPlugin.so">
+        <scaling collision="box_collision" scale=" 
+            0.4
+            0.4
+            1.8
+          "/>
+      </plugin>
+      <script>
+        <loop>true</loop>
+          <auto_start>true</auto_start>
+            <trajectory id="0" type="walking">
+              <waypoint>
+                <time>0.0</time>
+                <pose>13 13 0 0 0 0</pose>
+              </waypoint>
+              <waypoint>
+                <time>1.0*700000.0</time>
+                <pose>13 13 0 0 0 0</pose>
+              </waypoint>
+              <waypoint>
+                <time>2.0*7000.0</time>
+                <pose>13 13 2 0 0 0</pose>
+              </waypoint>
+              <waypoint>
+                <time>3.0*700000.0</time>
+                <pose>13 13 0 0 0 0</pose>
+              </waypoint>
+              <waypoint>
+                <time>4.0*700000.0</time>
+                <pose>13 13 0 0 0 0</pose>
+              </waypoint>
+            </trajectory>
+      </script>
+    </actor>
+
+    <actor name="animated_box">
+      <link name="link">
+        <inertial>
+          <mass>1.0</mass>
+          <inertia> <!-- inertias are tricky to compute -->
+            <ixx>0.083</ixx>       <!-- for a box: ixx = 0.083 * mass * (y*y + z*z) -->
+            <ixy>0.0</ixy>         <!-- for a box: ixy = 0 -->
+            <ixz>0.0</ixz>         <!-- for a box: ixz = 0 -->
+            <iyy>0.083</iyy>       <!-- for a box: iyy = 0.083 * mass * (x*x + z*z) -->
+            <iyz>0.0</iyz>         <!-- for a box: iyz = 0 -->
+            <izz>0.083</izz>       <!-- for a box: izz = 0.083 * mass * (x*x + y*y) -->
+          </inertia>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>.4 .4 1.8</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>.4 .4 1.8</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Bricks</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+      </link>
+      <plugin name="actor_collisions_plugin" filename="/home/jin/ba_ws/src/nexus_4wd_mecanum_simulator-master/nexus_4wd_mecanum_gazebo/actor_collisions-master/build/libActorCollisionsPlugin.so">
+        <scaling collision="box_collision" scale=" 
+            0.4
+            0.4
+            1.8
+          "/>
+      </plugin>
+      <script>
+        <loop>true</loop>
+          <auto_start>true</auto_start>
+            <trajectory id="0" type="walking">
+              <waypoint>
+              <time>0.0</time>
+              <pose>4 9 0 0 0 0</pose>
+            </waypoint>
+            <waypoint>
+              <time>10.0*8</time>
+              <pose>7 7 0 0 0 0</pose>
+            </waypoint>
+            <waypoint>
+              <time>20.0*8</time>
+              <pose>4 9 0 0 0 0</pose>
+            </waypoint>
+            </trajectory>
+      </script>
+    </actor>
+
+
+
+
+    <model name="model_1">
+      <!-- important to allow collisions with actor -->
+      <allow_auto_disable>false</allow_auto_disable>
+      <pose frame=''>3.63 2.6 0.5 0 -0 0</pose>
+      <link name="link">
+        <inertial>
+        <mass>0.004027552138453025</mass>
+        <inertia>
+          <ixx>7.91307599122789e-06</ixx>
+          <iyy>1.6274618627189043e-05</iyy>
+          <izz>2.361954240863773e-05</izz>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+        </inertia>
+      </inertial>
+
+        <collision name='collision'>
+          <geometry>
+            <cylinder>
+              <radius>0.5</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <cylinder>
+              <radius>0.5</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Wood</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+    <model name="model_2">
+      <!-- important to allow collisions with actor -->
+      <allow_auto_disable>false</allow_auto_disable>
+      <pose frame=''>5.68 5.61 0.5 0 -0 0</pose>
+      <link name="link">
+        <inertial>
+        <mass>0.004027552138453025</mass>
+        <inertia>
+          <ixx>7.91307599122789e-06</ixx>
+          <iyy>1.6274618627189043e-05</iyy>
+          <izz>2.361954240863773e-05</izz>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+        </inertia>
+      </inertial>
+
+        <collision name='collision'>
+          <geometry>
+            <cylinder>
+              <radius>0.5</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <cylinder>
+              <radius>0.5</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Wood</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+    <model name="model_3">
+      <!-- important to allow collisions with actor -->
+      <allow_auto_disable>false</allow_auto_disable>
+      <pose frame=''>7.9 8.2 0.5 0 -0 0</pose>
+      <link name="link">
+        <inertial>
+        <mass>0.004027552138453025</mass>
+        <inertia>
+          <ixx>7.91307599122789e-06</ixx>
+          <iyy>1.6274618627189043e-05</iyy>
+          <izz>2.361954240863773e-05</izz>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+        </inertia>
+      </inertial>
+
+        <collision name='collision'>
+          <geometry>
+            <cylinder>
+              <radius>0.5</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <cylinder>
+              <radius>0.5</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Wood</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+    <model name="model_4">
+      <!-- important to allow collisions with actor -->
+      <allow_auto_disable>false</allow_auto_disable>
+      <pose frame=''>7.16 9.53 0.5 0 -0 0</pose>
+      <link name="link">
+        <inertial>
+        <mass>0.004027552138453025</mass>
+        <inertia>
+          <ixx>7.91307599122789e-06</ixx>
+          <iyy>1.6274618627189043e-05</iyy>
+          <izz>2.361954240863773e-05</izz>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+        </inertia>
+      </inertial>
+
+        <collision name='collision'>
+          <geometry>
+            <cylinder>
+              <radius>0.5</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <cylinder>
+              <radius>0.5</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Wood</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+    <model name="model_5">
+      <!-- important to allow collisions with actor -->
+      <allow_auto_disable>false</allow_auto_disable>
+      <pose frame=''>2.0 2.23 0.5 0 -0 0</pose>
+      <link name="link">
+        <inertial>
+        <mass>0.004027552138453025</mass>
+        <inertia>
+          <ixx>7.91307599122789e-06</ixx>
+          <iyy>1.6274618627189043e-05</iyy>
+          <izz>2.361954240863773e-05</izz>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+        </inertia>
+      </inertial>
+
+        <collision name='collision'>
+          <geometry>
+            <cylinder>
+              <radius>0.5</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <cylinder>
+              <radius>0.5</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Wood</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+    <model name="model_6">
+      <!-- important to allow collisions with actor -->
+      <allow_auto_disable>false</allow_auto_disable>
+      <pose frame=''>6.35 6.44 0.5 0 -0 0</pose>
+      <link name="link">
+        <inertial>
+        <mass>0.004027552138453025</mass>
+        <inertia>
+          <ixx>7.91307599122789e-06</ixx>
+          <iyy>1.6274618627189043e-05</iyy>
+          <izz>2.361954240863773e-05</izz>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+        </inertia>
+      </inertial>
+
+        <collision name='collision'>
+          <geometry>
+            <cylinder>
+              <radius>0.5</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <cylinder>
+              <radius>0.5</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Wood</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+   
+   
+
+  </world>
+</sdf>

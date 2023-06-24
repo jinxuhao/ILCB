@@ -1,0 +1,32 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/opt/ros/melodic/include/**",
+        "/home/jin/Desktop/ws/devel/include/**",
+        "/home/jin/Desktop/ws/src/faster/thirdparty/DecompROS/decomp_ros_utils/include/**",
+        "/home/jin/Desktop/ws/src/faster/thirdparty/DecompROS/DecompUtil/include/**",
+        "/home/jin/Desktop/ws/src/faster/faster/include/**",
+        "/home/jin/Desktop/ws/src/acl-mapping/fla_utils/include/**",
+        "/home/jin/Desktop/ws/src/faster/thirdparty/jps3d/include/**",
+        "/home/jin/Desktop/ws/src/ros_exploring/robot_mrobot/mrobot_bringup/include/**",
+        "/home/jin/Desktop/ws/src/nexus_4wd_mecanum_simulator-master/nexus_4wd_mecanum_gazebo/include/**",
+        "/home/jin/Desktop/ws/src/ros_exploring/ros_advanced/pluginlib_tutorials/include/**",
+        "/home/jin/Desktop/ws/src/ros_exploring/robot_perception/robot_voice/include/**",
+        "/home/jin/Desktop/ws/src/tf02_dynamic/include/**",
+        "/home/jin/Desktop/ws/src/togoal/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
