@@ -22,11 +22,6 @@ import random
 from least_square import fit_circle
 from fit_polynom import fit_polynom
 
-#import pandas as pd
-
-#from sklearn import dataset
-
-# 定义全局变量
 
 x = 0
 y = 0
@@ -55,9 +50,8 @@ dtheta=0
 
 X_t = 27
 Y_t = 30
-X_sim = 27      # 目标点x坐标
-Y_sim = 30     # 目标点y坐
-
+X_sim = 27      
+Y_sim = 30     
 r=0.05
 vx=0
 
@@ -181,7 +175,7 @@ def callback(msg1):
 	for r in msg1.ranges:
 	
         #change infinite values to 0
-        #如果r的值是正负无穷大，归零
+
 		if math.isinf(r) == True:
 			r = 0
         #convert angle and radius to cartesian coordinates
@@ -192,11 +186,10 @@ def callback(msg1):
 	return rlist,alist
 
 
-def Trans_robot_pose(msg):  # 回调函数
-    # 位置坐标声明
+def Trans_robot_pose(msg):  
     global x
     global y
-    global w_o    # 当前小车位姿的四元数信息.8590735439489559
+    global w_o    
     global x_o
     global y_o
     global z_o
@@ -212,49 +205,52 @@ def Trans_robot_pose(msg):  # 回调函数
 
 def dist(t1, t2):
 	dis = math.sqrt((np.power((t1[0]-t2[0]),2) + np.power((t1[1]-t2[1]),2)))
-    # print("两点之间的距离为："+str(dis))
+
 	return dis
 
 
 def dbscan(Data, Eps, MinPts):
 	global C
 	C = []
-	num = len(Data)  # 点的个数
-    # print("点的个数："+str(num))
-	unvisited = [i for i in range(num)]  # 没有访问到的点的列表
-    # print(unvisited)
-	visited = []  # 已经访问的点的列表
+	num = len(Data)  
+	unvisited = [i for i in range(num)]  # List of points not visited
+	visited = []  # List of points that have been visited
 	DK = [index for index in range(num)]
 	for index in range(num):
 		DK[index]=[]
 	C = [-1 for i in range(num)]
-    # C为输出结果，默
-    # 用k来标记不同的簇，k = -1表示噪声点np.sort(X,axis=0)
+
+    
+	# Use k to mark different clusters, k = -1 indicates the noise point np.sort(X,axis=0)
+
 	k = -1
-    # 如果还有没访问的点 print('neibu',num)
+    # If there are still unvisited points print('neibu',num)
+
 	while len(unvisited) > 0:
-        # 随机选择一个unvisited对象
+        # Randomly select an unvisited object
 		p = random.choice(unvisited)
 		unvisited.remove(p)
 		visited.append(p)
-        # N为p的epsilon邻域中的对象的集合
+       # N is the collection of objects in P's epsilon neighborhood
+
 		N = []
 		for i in range(num):
 			if (dist(Data[i], Data[p]) <= Eps):# and (i!=p):
 				N.append(i)
-        # 如果p的epsilon邻域中的对象数大于指定阈值，说明p是一个核心对象
+        # If the number of objects in P's epsilon neighborhood is greater than the specified threshold, P is a core object
 		if len(N) >= MinPts:
 			k = k+1
             # print(k)
 			C[p] = k
 			DK[k].append(Data[p])
-            # 对于_p的epsilon邻域中的每个对象pi
+            # pi for each object in the epsilon neighborhood of the _p
 			for pi in N:
 				if pi in unvisited:
 					unvisited.remove(pi)
 					visited.append(pi)
-                    # 找到pi的邻域中的核心对象，将这些对象放入N中
-                    # M是位于pi的邻域中的点的列表
+                    # Find the core objects in pi's neighborhood and put these objects into N
+					# M is a list of points located in the neighborhood of pi
+
 					M = []
 					for j in range(num):
 						if (dist(Data[j], Data[pi])<=Eps): #and (j!=pi):
@@ -263,15 +259,16 @@ def dbscan(Data, Eps, MinPts):
 						for t in M:
 							if t not in N:
 								N.append(t)
-                # 若pi不属于任何簇，C[pi] == -1说明C中第pi个值没有改动
+                # If pi does not belong to any cluster, C[pi] == -1 indicates that the pith value in C has not changed
+
 				if C[pi] == -1:
 					C[pi] = k
 					DK[k].append(Data[pi])
-        # 如果p的epsilon邻域中的对象数小于指定阈值，说明p是一个噪声点
+        # If the number of objects in P's epsilon neighborhood is less than the specified threshold, P is a noise point
 		else:
 			C[p] = -1
-	# print ('DK',DK)
 	return C ,DK
+
 
 
 def set_data_radar(x,y,rlist_def,alist_def,yaw_def):
@@ -346,7 +343,7 @@ if __name__ == '__main__':
 		# print('xlist',xlist)
 		dataSet = [list(t) for t in zip(xlist,ylist)]                  
 	    
-		# print('dataset',dataSet)                # 输出列表
+		# print('dataset',dataSet)             
 	
 		Cr,DK_data = dbscan(dataSet, 0.2, 20)# 0.1 20x_center_list_fina
 		k=-1
@@ -404,41 +401,7 @@ if __name__ == '__main__':
 		
 		#n42, n41 ,n4, n4y =fit_polynom(DK4x,DK4y)
 
-		'''
-		pf2 = PolynomialFeatures(degree = 2,include_bias = False)
-		DK_2x =np.array(DK2x)
-		DK_2y =np.array(DK2y)
-		if DK_2x.size != 0:
 
-			X_new2 = pf2.fit_transform(DK_2x.reshape(-1, 1))
-			reg1 = LinearRegression()
-			reg1.fit(X_new2,DK_2y.reshape(-1, 1))
-			print('reg1.inter',reg2.intercept_)
-			print('reg1.coef',reg2.coef_)
-			n22 = reg2.coef_[0][1]
-			n21 = reg2.coef_[0][0]
-			n2  = reg2.intercept_[0]
-			n2y=0
-			if not (np.array_equal(reg2.coef_,array) and (n2==0.0)) :
-				n2y = 1
-		'''
-	
-		"""
-		
-			if np.linalg.det(eTe) == 0.0:
-				print('xTx不可逆')
-			else:
-				q = np.ravel(eTe.I * (Z_train.T * y_train))
-			coef_ = q[:-1]
-			intercept_ = q[-1]
-				
-			print('Coefficients: ', coef_)
-			print('Intercept:', intercept_)
-			print('the model is: y = ', coef_[0], '* X + ', coef_[1], '* X^2 + ', intercept_)
-		except:
-			continue
-		
-		"""
 		if len(DK1x) !=0:
 			x_center_0_list,y_center_0_list,R_0_list = set_circle_data(DK1x,DK1y)
 			x_center_0 = x_center_0_list[0]
@@ -553,7 +516,6 @@ if __name__ == '__main__':
 		#h5 = n42*x*x+n41*x+n4-y*n4y
 		
 
-		# 判断坐标象限
 		if (Y_t - y) == 0 and (X_t - x) > 0:
 			yaw_t = 0
 		if (Y_t - y) > 0 and (X_t - x) > 0:
@@ -592,7 +554,7 @@ if __name__ == '__main__':
         # -2.*(x-x_center_0)*(p_0_1*time_now+p_0_0)-2.*(y-y_center_0)*(q_0_1*time_now+q_0_0)
 		sol = solvers.qp(P,q,G,h)
 		'''
-		P = 2*matrix([[1.0,0.0],[0.0,1.0]])   # matrix里区分int和double，所以数字后面都需要加小数点
+		P = 2*matrix([[1.0,0.0],[0.0,1.0]])   
 		q = matrix([-2.*v1d, -2.*v2d])
 		G = matrix([[-2.*(x-x_center_0)*p_0_flag,-2.*(x-x_center_1)*p_1_flag,-2.*(x-x_center_2)*p_2_flag],[-2.*(y-y_center_0)*p_0_flag,-2.*(y-y_center_1)*p_1_flag,-2.*(y-y_center_2)*p_2_flag]])
 		#,1.0,0.0,-1.0,0.0,-2.*n22*x-1.*n21,-2.*n32*x-1.*n31,-2.*n42*x-1.*n41
@@ -648,9 +610,8 @@ if __name__ == '__main__':
 		#print('yaw_t',yaw_t)
 		
 
-
-		turtle_vel.publish(msg)    # 发布运动指令
-		rospy.Subscriber('/odom', nav_msgs.msg.Odometry,  Trans_robot_pose) # 获取位姿信息
+		turtle_vel.publish(msg)    # Publish motion instructions
+		rospy.Subscriber('/odom', nav_msgs.msg.Odometry,  Trans_robot_pose)# Get pose information
 		pub.publish(msg1)    # pub.publish(scann)
 		rospy.Subscriber('/scan', LaserScan, callback)
 		rate.sleep()
