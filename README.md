@@ -64,5 +64,5 @@ Results has been tested with
 
 Install dependencies for reference；
 
-	master/requirement.text
+	master/requirements.txt
 
