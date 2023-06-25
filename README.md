@@ -9,28 +9,35 @@
 
 ## Results Showcase
 Case 1:	IL-CBF in One Outdoor Scenario
-cbf_
 
-https://github.com/jinxuhao/ILCB/assets/93445630/9214cc05-b572-4272-b500-6844a5371b0e
 
-forest
+https://github.com/jinxuhao/ILCB/assets/93445630/5b216260-3042-4794-93bf-5b63cf288421
 
-[![IL-CBF for Dynamic Obstacle](./faster/imgs/uav_sim.gif)](https://www.youtube.com/watch?v=fkkkgomkX10 "IROS 2019: FASTER: Fast and Safe Trajectory Planner for Flights in Unknown Environments")     
+
 
 
 
 Case 2:	Comparative Simulation in One Indoor Scenario
 
 
+https://github.com/jinxuhao/ILCB/assets/93445630/a7bef2a3-ade4-4be5-8235-01086a9848f1
+
+
+
 
 Case 3:	IL-CBF for Static small Obstacle
-small_demo1
-		[![IL-CBF for Static small Obstacle](./faster/imgs/uav_sim.gif)](https://www.youtube.com/watch?v=fkkkgomkX10 "IROS 2019: FASTER: Fast and Safe Trajectory Planner for Flights in Unknown Environments")    
+
+
+https://github.com/jinxuhao/ILCB/assets/93445630/979d7e65-ac02-4b18-b66a-301121da1c67
+
 
   
 Case 4:	IL-CBF for Dynamic Obstacle
-dynamic_new
-	[![IL-CBF for Dynamic Obstacle](./faster/imgs/uav_sim.gif)](https://www.youtube.com/watch?v=fkkkgomkX10 "IROS 2019: FASTER: Fast and Safe Trajectory Planner for Flights in Unknown Environments")    
+
+
+https://github.com/jinxuhao/ILCB/assets/93445630/1693efc1-b818-4a6b-bd52-d763e31f0890
+
+
 
 
 ## User Manual
@@ -64,6 +71,7 @@ Case 3:	IL-CBF for Static small Obstacle
 		roslaunch nexus_4wd_mecanum_gazebo  nexus_4wd_mecanum_world.launch
 
 		python3 pd_CBF_static_small_demo.py 
+  
 Case 4:	IL-CBF for Dynamic Obstacle
 
 		roslaunch nexus_4wd_mecanum_gazebo  nexus_4wd_mecanum_world.launch
