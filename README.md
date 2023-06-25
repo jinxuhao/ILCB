@@ -14,7 +14,7 @@
 ## User Manual
 
 Case 1 :
-	clf+ static 
+	Clf + static 
  
 		roslaunch nexus_4wd_mecanum_gazebo  nexus_4wd_mecanum_world1.launch
 
@@ -22,7 +22,7 @@ Case 1 :
 
 
 Case 2:
-	clf + dynamic
+	Clf + dynamic
 
 		roslaunch nexus_4wd_mecanum_gazebo  nexus_4wd_mecanum_world.launch
 
@@ -30,7 +30,7 @@ Case 2:
 		python3 pd_CBF_static_dynamic_case.py
 
 Case 3：
-	clf + small_demo(100,150)
+	Clf + small_demo(100,150)
 
 		roslaunch nexus_4wd_mecanum_gazebo  nexus_4wd_mecanum_world.launch
 
@@ -39,7 +39,7 @@ Case 3：
 
 
 Case 4：
-	comparison
+	Comparison
 
 		roslaunch nexus_4wd_mecanum_gazebo nexus_4wd_mecanum_duibi.launch
 
@@ -65,6 +65,4 @@ Results has been tested with
 Install dependencies for reference；
 
 	master/requirement.text
-
-Now you can click `Start` in the GUI, and then, in RVIZ, press `G` (or click the option `2D Nav Goal` on the top bar of RVIZ) and click any goal for the ground robot. 
 
