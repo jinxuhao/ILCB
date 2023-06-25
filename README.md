@@ -8,38 +8,42 @@
 
 
 ## Results Showcase
+Case 1 :
+	IL-CBF for Dynamic Obstacle
 
+[![IROS 2019: FASTER: Fast and Safe Trajectory Planner for Flights in Unknown Environments](./faster/imgs/uav_sim.gif)](https://www.youtube.com/watch?v=fkkkgomkX10 "IROS 2019: FASTER: Fast and Safe Trajectory Planner for Flights in Unknown Environments")     
+
+
+
+Case 2：
+	Comparative Simulation in One Indoor Scenario
+
+	[![IROS 2019: FASTER: Fast and Safe Trajectory Planner for Flights in Unknown Environments](./faster/imgs/uav_sim.gif)](https://www.youtube.com/watch?v=fkkkgomkX10 "IROS 2019: FASTER: Fast and Safe Trajectory Planner for Flights in Unknown Environments")    
+
+Case 3：
+	IL-CBF for Static small Obstacle
+
+		[![IROS 2019: FASTER: Fast and Safe Trajectory Planner for Flights in Unknown Environments](./faster/imgs/uav_sim.gif)](https://www.youtube.com/watch?v=fkkkgomkX10 "IROS 2019: FASTER: Fast and Safe Trajectory Planner for Flights in Unknown Environments")    
+
+  
+Case 4:
+	IL-CBF for Dynamic Obstacle
+
+	[![IROS 2019: FASTER: Fast and Safe Trajectory Planner for Flights in Unknown Environments](./faster/imgs/uav_sim.gif)](https://www.youtube.com/watch?v=fkkkgomkX10 "IROS 2019: FASTER: Fast and Safe Trajectory Planner for Flights in Unknown Environments")    
 
 
 ## User Manual
 
 Case 1 :
-	Clf + static 
+	IL-CBF for Dynamic Obstacle
  
 		roslaunch nexus_4wd_mecanum_gazebo  nexus_4wd_mecanum_world1.launch
 
 		python3 pd_CBF_static.py
 
 
-Case 2:
-	Clf + dynamic
-
-		roslaunch nexus_4wd_mecanum_gazebo  nexus_4wd_mecanum_world.launch
-
-		python3 pd_CBF_dynamic1.py
-		python3 pd_CBF_static_dynamic_case.py
-
-Case 3：
-	Clf + small_demo(100,150)
-
-		roslaunch nexus_4wd_mecanum_gazebo  nexus_4wd_mecanum_world.launch
-
-		python3 pd_CBF_static_small_demo.py 
-
-
-
-Case 4：
-	Comparison
+Case 2：
+	Comparative Simulation in One Indoor Scenario
 
 		roslaunch nexus_4wd_mecanum_gazebo nexus_4wd_mecanum_duibi.launch
 
@@ -55,6 +59,25 @@ Case 4：
 		roslaunch ros_autonomous_slam turtlebot3_navigation.launch
 	
 		python3 pd_CBF_static_duibi1.py
+
+Case 3：
+	IL-CBF for Static small Obstacle
+
+		roslaunch nexus_4wd_mecanum_gazebo  nexus_4wd_mecanum_world.launch
+
+		python3 pd_CBF_static_small_demo.py 
+Case 4:
+	IL-CBF for Dynamic Obstacle
+
+		roslaunch nexus_4wd_mecanum_gazebo  nexus_4wd_mecanum_world.launch
+
+		python3 pd_CBF_dynamic1.py
+		python3 pd_CBF_static_dynamic_case.py
+
+
+
+
+
 
 ## Citation
 
