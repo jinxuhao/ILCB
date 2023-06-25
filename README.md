@@ -1,4 +1,10 @@
 # ILCB
+## **Instantaneous Local Control Barrier Function for Collision Avoidance**
+
+### **Scientific thesis for the procurance of the degree B.Sc. from the Department of Electrical and Computer Engineering at the Technical University of Munich.**
+
+### **Supervised by Univ.-Prof. Dr.-Ing./Univ. Tokio habil. Martin Buss PD Dr.-Ing. Cong Li, PD Dr.-Ing. habil. Marion LeiboldChair of Automatic Control Engineering**
+### **Submitted by B.Sc. Xuhao Jin**
 ## Citation
 安装package 后运行程序跑不同案例
 
