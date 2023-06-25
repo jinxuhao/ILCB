@@ -8,14 +8,15 @@
 ## Citation
 安装package 后运行程序跑不同案例
 
-case 1 :
+Case 1 :
 	clf+ static 
+ 
 		roslaunch nexus_4wd_mecanum_gazebo  nexus_4wd_mecanum_world1.launch
 
 		python3 pd_CBF_static.py
 
 
-case 2:
+Case 2:
 	clf + dynamic
 
 		roslaunch nexus_4wd_mecanum_gazebo  nexus_4wd_mecanum_world.launch
@@ -23,7 +24,7 @@ case 2:
 		python3 pd_CBF_dynamic1.py
 		python3 pd_CBF_static_dynamic_case.py
 
-case3：
+Case 3：
 	clf + small_demo(100,150)
 
 		roslaunch nexus_4wd_mecanum_gazebo  nexus_4wd_mecanum_world.launch
@@ -32,7 +33,7 @@ case3：
 
 
 
-case4：
+Case 4：
 	comparison
 
 		roslaunch nexus_4wd_mecanum_gazebo nexus_4wd_mecanum_duibi.launch
