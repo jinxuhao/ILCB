@@ -8,7 +8,7 @@
 
 
 ## Results Showcase
-Case 1:	IL-CBF in One Outdoor Scenario
+### Case 1:	IL-CBF in One Outdoor Scenario
 
 
 https://github.com/jinxuhao/ILCB/assets/93445630/5b216260-3042-4794-93bf-5b63cf288421
@@ -16,8 +16,7 @@ https://github.com/jinxuhao/ILCB/assets/93445630/5b216260-3042-4794-93bf-5b63cf2
 
 
 
-
-Case 2:	Comparative Simulation in One Indoor Scenario
+### Case 2:	Comparative Simulation in One Indoor Scenario
 
 
 https://github.com/jinxuhao/ILCB/assets/93445630/a7bef2a3-ade4-4be5-8235-01086a9848f1
@@ -25,14 +24,14 @@ https://github.com/jinxuhao/ILCB/assets/93445630/a7bef2a3-ade4-4be5-8235-01086a9
 
 
 
-Case 3:	IL-CBF for Static small Obstacle
+### Case 3:	IL-CBF for Static small Obstacle
 
 
 https://github.com/jinxuhao/ILCB/assets/93445630/979d7e65-ac02-4b18-b66a-301121da1c67
 
 
   
-Case 4:	IL-CBF for Dynamic Obstacle
+### Case 4:	IL-CBF for Dynamic Obstacle
 
 
 https://github.com/jinxuhao/ILCB/assets/93445630/1693efc1-b818-4a6b-bd52-d763e31f0890
